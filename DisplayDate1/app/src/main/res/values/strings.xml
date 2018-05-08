@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Display Date</string>
+    <string name="display_date">Display Date</string>
+    <string name="today_is">Today is...</string>
+</resources>
