@@ -1,5 +1,7 @@
 package com.example.ratech.sqliteapp;
 
+import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseHelper myDb;
 
     EditText editFirstName, editLastName, editMark;
-    Button btnAddStudent;
+    Button btnAddStudent, btnViewStudents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +26,10 @@ public class MainActivity extends AppCompatActivity {
         editLastName = (EditText) findViewById(R.id.et_lastname);
         editMark = (EditText) findViewById(R.id.et_mark);
         btnAddStudent = (Button) findViewById(R.id.bt_addStudent);
+        btnViewStudents = (Button) findViewById(R.id.bt_viewStudents);
 
         addStudent();
+        viewStudents();
     }
 
 
@@ -38,13 +42,47 @@ public class MainActivity extends AppCompatActivity {
                         editLastName.getText().toString(),
                         Integer.parseInt(editMark.getText().toString()));
                 if (isInserted == true) {
-                    Toast.makeText(MainActivity.this,"Student inserted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Student inserted", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(MainActivity.this,"Student not inserted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Student not inserted", Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
 
+
+    public void viewStudents() {
+        btnViewStudents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cursor res = myDb.getAllStudents();
+                if (res.getCount() == 0) {
+                    // show message
+                    showMessage("Error", "No students found");
+                    return;
+                } else {
+                    StringBuffer buffer = new StringBuffer();
+                    while (res.moveToNext()) {
+                        buffer.append("Id: " + res.getString(0) + "\n");
+                        buffer.append("Firstname: " + res.getString(1) + "\n");
+                        buffer.append("Lastname: " + res.getString(2) + "\n");
+                        buffer.append("Mark: " + res.getString(3) + "\n\n");
+                    }
+
+                    // Show all data
+                    showMessage("Students",buffer.toString());
+                }
+            }
+        });
+    }
+
+
+    public void showMessage(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+    }
 
 }
