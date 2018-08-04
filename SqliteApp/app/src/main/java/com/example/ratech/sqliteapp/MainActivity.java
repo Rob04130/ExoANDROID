@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
 
-    EditText editFirstName, editLastName, editMark;
-    Button btnAddStudent, btnViewStudents;
+    EditText editId, editFirstName, editLastName, editMark;
+    Button btnAddStudent, btnViewStudents, btnUpdateStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +22,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         myDb = new DatabaseHelper(this);
 
+        editId  = (EditText) findViewById(R.id.et_id); // only used for updating or deleting a student
         editFirstName = (EditText) findViewById(R.id.et_firstname);
         editLastName = (EditText) findViewById(R.id.et_lastname);
         editMark = (EditText) findViewById(R.id.et_mark);
         btnAddStudent = (Button) findViewById(R.id.bt_addStudent);
         btnViewStudents = (Button) findViewById(R.id.bt_viewStudents);
+        btnUpdateStudent = (Button) findViewById(R.id.bt_updateStudent);
 
         addStudent();
         viewStudents();
+        updateStudent();
     }
 
 
@@ -76,6 +79,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    public void updateStudent() {
+        btnUpdateStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isUpdated = myDb.updateStudent(
+                        Integer.parseInt(editId.getText().toString()),
+                        editFirstName.getText().toString(),
+                        editLastName.getText().toString(),
+                        Integer.parseInt(editMark.getText().toString())
+                );
+                if (isUpdated) {
+                    Toast.makeText(MainActivity.this, "Student updated", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Student not updated", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
 
     public void showMessage(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

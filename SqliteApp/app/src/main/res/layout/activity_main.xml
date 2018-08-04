@@ -7,12 +7,33 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="ID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="33dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="id"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_firstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="6dp"
         android:layout_marginStart="16dp"
         android:text="FIRSTNAME"
         app:layout_constraintBottom_toBottomOf="@+id/et_lastname"
@@ -22,43 +43,45 @@
         android:id="@+id/et_firstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Firstname"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/et_lastname"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/et_id"
+        app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
     <TextView
         android:id="@+id/tv_lastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="62dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="60dp"
         android:text="LASTNAME"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_firstname"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <EditText
         android:id="@+id/et_lastname"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
-        android:layout_marginBottom="22dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="69dp"
+        android:layout_marginTop="69dp"
         android:ems="10"
         android:hint="Lastname"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/et_mark"
+        app:layout_constraintBottom_toBottomOf="@+id/et_mark"
         app:layout_constraintStart_toStartOf="@+id/et_firstname"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lastname" />
+        app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
     <TextView
         android:id="@+id/tv_mark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="45dp"
         android:text="MARK"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_firstname" />
@@ -67,7 +90,7 @@
         android:id="@+id/et_mark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Mark"
@@ -77,23 +100,32 @@
 
     <Button
         android:id="@+id/bt_addStudent"
-        android:layout_width="132dp"
+        android:layout_width="154dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:layout_marginEnd="83dp"
-        android:layout_marginStart="83dp"
         android:text="ADD STUDENT"
         app:layout_constraintBottom_toTopOf="@+id/bt_viewStudents"
-        app:layout_constraintEnd_toEndOf="@+id/et_mark"
-        app:layout_constraintStart_toEndOf="@+id/tv_mark" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/bt_viewStudents"
-        android:layout_width="wrap_content"
+        android:layout_width="156dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="118dp"
+        android:layout_marginBottom="8dp"
         android:text="VIEW STUDENTS"
+        app:layout_constraintBottom_toTopOf="@+id/bt_updateStudent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bt_updateStudent"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="93dp"
+        android:text="UPDATE STUDENT"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/bt_addStudent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
