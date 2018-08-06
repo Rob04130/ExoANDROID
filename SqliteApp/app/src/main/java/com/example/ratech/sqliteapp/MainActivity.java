@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseHelper myDb;
 
     EditText editId, editFirstName, editLastName, editMark;
-    Button btnAddStudent, btnViewStudents, btnUpdateStudent;
+    Button btnAddStudent, btnViewStudents, btnUpdateStudent, btnDeleteStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +29,12 @@ public class MainActivity extends AppCompatActivity {
         btnAddStudent = (Button) findViewById(R.id.bt_addStudent);
         btnViewStudents = (Button) findViewById(R.id.bt_viewStudents);
         btnUpdateStudent = (Button) findViewById(R.id.bt_updateStudent);
+        btnDeleteStudent = (Button) findViewById((R.id.bt_deleteStudent));
 
         addStudent();
         viewStudents();
         updateStudent();
+        deleteStudent();
     }
 
 
@@ -94,6 +96,20 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Student updated", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Student not updated", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    public void deleteStudent() {
+        btnDeleteStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int deletedStudent = myDb.deleteStudent(Integer.parseInt(editId.getText().toString()));
+                if (deletedStudent > 0) {
+                    Toast.makeText(MainActivity.this, "Student deleted", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Student not deleted", Toast.LENGTH_LONG).show();
                 }
             }
         });
