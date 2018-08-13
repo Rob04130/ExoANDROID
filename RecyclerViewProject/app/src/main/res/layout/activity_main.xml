@@ -23,7 +23,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="25dp"
-        android:hint="ins"
+        android:hint="0"
         android:inputType="number"/>
 
     <Button
@@ -43,7 +43,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/edittext_insert"
         android:layout_marginEnd="118dp"
-        android:hint="rem" />
+        android:hint="0"
+        android:inputType="number"/>
 
     <Button
         android:id="@+id/button_remove"
@@ -52,7 +53,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/edittext_insert"
         android:layout_marginEnd="17dp"
-        android:text="remove"
-        android:inputType="number"/>
+        android:text="remove" />
 
 </RelativeLayout>

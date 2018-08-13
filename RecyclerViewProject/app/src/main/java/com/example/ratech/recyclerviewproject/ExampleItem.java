@@ -12,6 +12,10 @@ public class ExampleItem {
         mText2 = text2;
     }
 
+    public void changedText1(String text) {
+        mText1 = text;
+    }
+
     public int getImageRessource() {
         return mImageRessource;
     }
