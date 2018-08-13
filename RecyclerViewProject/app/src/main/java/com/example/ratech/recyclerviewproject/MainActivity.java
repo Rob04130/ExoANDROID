@@ -30,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         createExampleList();
         buildRecyclerView();
+        setButtons();
+    }
 
+    private void setButtons() {
         buttonInsert = findViewById(R.id.button_insert);
         buttonRemove = findViewById(R.id.button_remove);
         editTextInsert = findViewById(R.id.edittext_insert);
@@ -51,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 removeItem(position);
             }
         });
-
     }
 
     public void insertItem(int position) {
@@ -86,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
         mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
+            @Override
+            public void onDeleteClick(int position) {
+                removeItem(position);
+            }
             @Override
             public void onItemClick(int position) {
                 changeItem(position, "Clicked");
