@@ -19,45 +19,43 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="76dp"
         android:text="0"
         android:textSize="50dp" />
 
     <Button
         android:id="@+id/bt_decrease"
-        android:layout_width="50dp"
+        android:layout_width="39dp"
         android:layout_height="68dp"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/tv_amount"
-        android:layout_marginStart="86dp"
+        android:layout_marginStart="112dp"
         android:text="-" />
 
     <Button
         android:id="@+id/bt_increase"
-        android:layout_width="50dp"
-        android:layout_height="68dp"
+        android:layout_width="42dp"
+        android:layout_height="72dp"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/tv_amount"
-        android:layout_marginEnd="86dp"
+        android:layout_marginEnd="103dp"
         android:text="+" />
 
+
+    <Button
+        android:id="@+id/bt_add"
+        android:layout_width="66dp"
+        android:layout_height="68dp"
+        android:layout_alignEnd="@+id/et_name"
+        android:layout_alignTop="@+id/tv_amount"
+        android:text="add" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="238dp"
+        android:layout_height="280dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="17dp" />
-
-    <Button
-        android:id="@+id/bt_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="158dp"
-        android:text="add" />
-
+        android:layout_marginBottom="15dp" />
 
 </RelativeLayout>

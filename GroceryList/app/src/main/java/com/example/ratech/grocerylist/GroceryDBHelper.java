@@ -19,9 +19,9 @@ public class GroceryDBHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_GROCERYLIST_TABLE = "CREATE TABLE " +
                 GroceryContract.GroceryEntry.TABLE_NAME + " (" +
                 GroceryContract.GroceryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                GroceryContract.GroceryEntry.COLUMN_NAME + "TEXT NOT NULL, " +
-                GroceryContract.GroceryEntry.COLUMN_AMOUNT + "INTEGER NOT NULL, " +
-                GroceryContract.GroceryEntry.COLUMN_TIMESTAMP + "TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
+                GroceryContract.GroceryEntry.COLUMN_NAME + " TEXT NOT NULL, " +
+                GroceryContract.GroceryEntry.COLUMN_AMOUNT + " INTEGER NOT NULL, " +
+                GroceryContract.GroceryEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                 ");";
         db.execSQL(SQL_CREATE_GROCERYLIST_TABLE);
     }
